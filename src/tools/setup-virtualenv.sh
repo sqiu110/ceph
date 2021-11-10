@@ -57,9 +57,11 @@ if [ -z "$DIR" ] ; then
 fi
 rm -fr $DIR
 mkdir -p $DIR
-virtualenv $PYTHON_OPTION $DIR
+echo $PYTHON_OPTION   $DIR
+/usr/bin/python3.5 -m venv $DIR
 . $DIR/bin/activate
 
+alias pip=pip3
 if pip --help | grep -q disable-pip-version-check; then
     DISABLE_PIP_VERSION_CHECK=--disable-pip-version-check
 else
